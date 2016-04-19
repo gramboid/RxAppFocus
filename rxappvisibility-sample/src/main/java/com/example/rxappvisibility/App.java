@@ -11,10 +11,6 @@ public class App extends Application {
 
     private AppVisibilityProvider visibilityProvider;
 
-    AppVisibilityProvider getVisibilityProvider() {
-        return visibilityProvider;
-    }
-
     @Override
     public void onCreate() {
         super.onCreate();
