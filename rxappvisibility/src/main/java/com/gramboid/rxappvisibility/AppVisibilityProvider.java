@@ -10,7 +10,7 @@ import rx.subjects.PublishSubject;
 /**
  * Provides Observables to monitor app visibility.
  */
-public class RxAppVisibility {
+public class AppVisibilityProvider {
 
     private boolean changingConfig;
     private int     foregroundCounter;
@@ -56,7 +56,7 @@ public class RxAppVisibility {
         }
     }
 
-    public RxAppVisibility(Application app) {
+    public AppVisibilityProvider(Application app) {
         app.registerActivityLifecycleCallbacks(callbacks);
     }
 
