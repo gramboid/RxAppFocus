@@ -1,0 +1,9 @@
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries/
+build/
+.DS_Store
+secure.gradle
+*.iml
+.irb-history
