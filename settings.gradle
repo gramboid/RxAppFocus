@@ -1,1 +1,1 @@
-include ':rxappvisibility-sample', ':rxappvisibility'
+include ':rxappfocus-sample', ':rxappfocus'
