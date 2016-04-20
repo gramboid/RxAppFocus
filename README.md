@@ -6,7 +6,8 @@ This is a tiny library which makes it simple to monitor when your app becomes vi
 
 In your `Application.onCreate()`:
 ```java
-new AppFocusProvider(this).getAppFocus()
+AppFocusProvider focusProvider = new AppFocusProvider(this);
+focusProvider.getAppFocus()
         .subscribe(new Action1<Boolean>() {
             @Override
             public void call(Boolean visible) {
