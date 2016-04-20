@@ -2,6 +2,11 @@
 
 This is a tiny library which makes it simple to monitor when your app becomes visible or hidden.
 
+Why would you want to do that?
+
+Maybe you want to trigger a sync with a cloud service when your app is resumed.
+Maybe you want to stop receiving location updates when your app goes into the background.
+
 ## Usage
 
 In your `Application.onCreate()`:
