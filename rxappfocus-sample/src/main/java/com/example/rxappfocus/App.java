@@ -24,4 +24,8 @@ public class App extends Application {
                     }
                 });
     }
+
+    public AppFocusProvider getFocusProvider() {
+        return focusProvider;
+    }
 }
