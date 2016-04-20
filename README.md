@@ -18,3 +18,5 @@ new AppFocusProvider(this).getAppFocus()
             }
         });
 ```
+
+See the rxappfocus-sample module for a working example.
