@@ -27,6 +27,12 @@ focusProvider.getAppFocus()
 
 See the [rxappfocus-sample](https://github.com/gramboid/RxAppFocus/tree/master/rxappfocus-sample) module for a working example.
 
+## Download
+
+```gradle
+compile 'com.gramboid.rxappfocus:rxappfocus:0.1.0'
+```
+
 ## License
 
     Copyright 2016 Gramboid Mobile Systems Ltd
