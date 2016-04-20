@@ -5,7 +5,7 @@ import android.app.Application;
 import android.app.Application.ActivityLifecycleCallbacks;
 
 import rx.Observable;
-import rx.subjects.PublishSubject;
+import rx.subjects.ReplaySubject;
 
 /**
  * Provides Observables to monitor app visibility.
@@ -15,7 +15,7 @@ public class AppFocusProvider {
     private boolean changingConfig;
     private int     foregroundCounter;
 
-    private final PublishSubject<Boolean> subject = PublishSubject.create();
+    private final ReplaySubject<Boolean> subject = ReplaySubject.createWithSize(1);
 
     private final ActivityLifecycleCallbacks callbacks = new DefaultActivityLifecycleCallbacks() {
 
