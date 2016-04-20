@@ -1,4 +1,12 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+ext {
+    PUBLISH_GROUP_ID = 'com.gramboid.rxappfocus'
+    PUBLISH_ARTIFACT_ID = 'rxappfocus'
+    PUBLISH_VERSION = '0.1.0'
+}
 
 android {
     compileSdkVersion 23
@@ -8,7 +16,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 23
         versionCode 1
-        versionName "1.0"
+        versionName PUBLISH_VERSION
     }
     buildTypes {
         release {
@@ -23,3 +31,5 @@ dependencies {
 
     compile 'io.reactivex:rxjava:1.1.3'
 }
+
+apply from: 'https://raw.githubusercontent.com/blundell/release-android-library/master/android-release-aar.gradle'
