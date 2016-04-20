@@ -20,4 +20,4 @@ focusProvider.getAppFocus()
     });
 ```
 
-See the rxappfocus-sample module for a working example.
+See the [rxappfocus-sample](https://github.com/gramboid/RxAppFocus/tree/master/rxappfocus-sample) module for a working example.
