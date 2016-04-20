@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/RxAppFocus.iml" filepath="$PROJECT_DIR$/RxAppFocus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rxappfocus/rxappfocus.iml" filepath="$PROJECT_DIR$/rxappfocus/rxappfocus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rxappfocus-sample/rxappfocus-sample.iml" filepath="$PROJECT_DIR$/rxappfocus-sample/rxappfocus-sample.iml" />
       <module fileurl="file://$PROJECT_DIR$/rxappfocus/rxappvisibility.iml" filepath="$PROJECT_DIR$/rxappfocus/rxappvisibility.iml" />
       <module fileurl="file://$PROJECT_DIR$/rxappfocus-sample/rxappvisibility-sample.iml" filepath="$PROJECT_DIR$/rxappfocus-sample/rxappvisibility-sample.iml" />
     </modules>
