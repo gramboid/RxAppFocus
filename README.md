@@ -29,6 +29,8 @@ See the [rxappfocus-sample](https://github.com/gramboid/RxAppFocus/tree/master/r
 
 ## Download
 
+Available in [jcenter](https://bintray.com/bintray/jcenter?filterByPkgName=RxAppFocus).
+
 ```gradle
 compile 'com.gramboid.rxappfocus:rxappfocus:0.1.0'
 ```
