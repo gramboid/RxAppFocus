@@ -61,10 +61,16 @@ public class AppFocusProvider {
         return foregroundCounter > 0;
     }
 
+    /**
+     * Returns an Observable that emits a Boolean indicating whether the app is visible, and each time the app's visibility changes.
+     */
     public Observable<Boolean> getAppFocus() {
         return appFocusSubject;
     }
 
+    /**
+     * Returns an Observable that emits the currently visible Activity, and when each new Activity is started.
+     */
     public Observable<Activity> getVisibleActivity() {
         return visibleActivitySubject;
     }
