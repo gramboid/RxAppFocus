@@ -25,7 +25,11 @@ public class AppFocusProvider {
                 // ignore activity start, just a config change
                 changingConfig = false;
             } else {
-                incrementVisibleCounter();
+                final boolean justBecomingVisible = !isVisible();
+                foregroundCounter++;
+                if (justBecomingVisible) {
+                    subject.onNext(true);
+                }
             }
         }
 
@@ -35,26 +39,14 @@ public class AppFocusProvider {
                 // ignore activity stop, just a config change
                 changingConfig = true;
             } else {
-                decrementVisibleCounter();
+                foregroundCounter--;
+                if (!isVisible()) {
+                    subject.onNext(false);
+                }
             }
         }
 
     };
-
-    private void incrementVisibleCounter() {
-        final boolean justBecomingVisible = !isVisible();
-        foregroundCounter++;
-        if (justBecomingVisible) {
-            subject.onNext(true);
-        }
-    }
-
-    private void decrementVisibleCounter() {
-        foregroundCounter--;
-        if (!isVisible()) {
-            subject.onNext(false);
-        }
-    }
 
     public AppFocusProvider(Application app) {
         app.registerActivityLifecycleCallbacks(callbacks);
