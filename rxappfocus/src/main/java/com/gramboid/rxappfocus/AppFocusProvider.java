@@ -12,10 +12,12 @@ import rx.subjects.ReplaySubject;
  */
 public class AppFocusProvider {
 
-    private boolean changingConfig;
-    private int     foregroundCounter;
+    private boolean  changingConfig;
+    private int      foregroundCounter;
+    private Activity visibleActivity;
 
-    private final ReplaySubject<Boolean> subject = ReplaySubject.createWithSize(1);
+    private final ReplaySubject<Boolean>  appFocusSubject        = ReplaySubject.createWithSize(1);
+    private final ReplaySubject<Activity> visibleActivitySubject = ReplaySubject.createWithSize(1);
 
     private final ActivityLifecycleCallbacks callbacks = new DefaultActivityLifecycleCallbacks() {
 
@@ -27,8 +29,10 @@ public class AppFocusProvider {
             } else {
                 final boolean justBecomingVisible = !isVisible();
                 foregroundCounter++;
+                visibleActivity = activity;
                 if (justBecomingVisible) {
-                    subject.onNext(true);
+                    appFocusSubject.onNext(true);
+                    visibleActivitySubject.onNext(activity);
                 }
             }
         }
@@ -39,9 +43,10 @@ public class AppFocusProvider {
                 // ignore activity stop, just a config change
                 changingConfig = true;
             } else {
+                visibleActivity = null;
                 foregroundCounter--;
                 if (!isVisible()) {
-                    subject.onNext(false);
+                    appFocusSubject.onNext(false);
                 }
             }
         }
@@ -57,7 +62,11 @@ public class AppFocusProvider {
     }
 
     public Observable<Boolean> getAppFocus() {
-        return subject;
+        return appFocusSubject;
+    }
+
+    public Observable<Activity> getVisibleActivity() {
+        return visibleActivitySubject;
     }
 
 }
