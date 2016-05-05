@@ -15,8 +15,9 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         focusProvider = new AppFocusProvider(this);
-        focusProvider
-                .getAppFocus()
+
+        // show a toast every time the app becomes visible or hidden
+        focusProvider.getAppFocus()
                 .subscribe(new Action1<Boolean>() {
                     @Override
                     public void call(Boolean visible) {
