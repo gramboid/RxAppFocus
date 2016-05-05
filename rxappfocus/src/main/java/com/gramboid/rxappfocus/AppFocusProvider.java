@@ -53,12 +53,12 @@ public class AppFocusProvider {
 
     };
 
-    public AppFocusProvider(Application app) {
-        app.registerActivityLifecycleCallbacks(callbacks);
+    private boolean isVisible() {
+        return foregroundCounter > 0;
     }
 
-    public boolean isVisible() {
-        return foregroundCounter > 0;
+    public AppFocusProvider(Application app) {
+        app.registerActivityLifecycleCallbacks(callbacks);
     }
 
     /**
