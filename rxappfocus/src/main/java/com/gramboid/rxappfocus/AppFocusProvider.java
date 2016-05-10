@@ -56,7 +56,7 @@ public class AppFocusProvider {
     }
 
     /**
-     * Returns an Observable that emits a Boolean indicating whether the app is currently visible, and each time the app's visibility changes.
+     * Returns an Observable that emits a Boolean indicating whether the app is currently visible, and again each time the app's visibility changes.
      */
     public Observable<Boolean> getAppFocus() {
         return appFocusSubject;
