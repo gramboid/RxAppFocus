@@ -31,9 +31,9 @@ focusProvider.getAppFocus()
 
 ```java
 if (focusProvider.isVisible()) {
-    // show a dialog
+    // app is visible
 } else {
-    // display a notification in the status bar
+    // app is not visible
 }
 ```
 
