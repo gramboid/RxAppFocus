@@ -5,6 +5,7 @@ import android.app.Application;
 import android.app.Application.ActivityLifecycleCallbacks;
 
 import rx.Observable;
+import rx.subjects.PublishSubject;
 import rx.subjects.ReplaySubject;
 
 /**
@@ -16,8 +17,8 @@ public class AppFocusProvider {
     private int      foregroundCounter;
     private Activity visibleActivity;
 
-    private final ReplaySubject<Boolean>  appFocusSubject        = ReplaySubject.createWithSize(1);
-    private final ReplaySubject<Activity> visibleActivitySubject = ReplaySubject.createWithSize(1);
+    private final ReplaySubject<Boolean>   appFocusSubject        = ReplaySubject.createWithSize(1);
+    private final PublishSubject<Activity> visibleActivitySubject = PublishSubject.create();
 
     private final ActivityLifecycleCallbacks callbacks = new DefaultActivityLifecycleCallbacks() {
 
@@ -62,14 +63,14 @@ public class AppFocusProvider {
     }
 
     /**
-     * Returns an Observable that emits a Boolean indicating whether the app is visible, and each time the app's visibility changes.
+     * Returns an Observable that emits a Boolean indicating whether the app is currently visible, and each time the app's visibility changes.
      */
     public Observable<Boolean> getAppFocus() {
         return appFocusSubject;
     }
 
     /**
-     * Returns an Observable that emits the currently visible Activity, and when each new Activity is started.
+     * Returns an Observable that emits the Activity each time a new Activity is started.
      */
     public Observable<Activity> getVisibleActivity() {
         return visibleActivitySubject;
