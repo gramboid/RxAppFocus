@@ -5,7 +5,7 @@ apply plugin: 'com.jfrog.bintray'
 ext {
     PUBLISH_GROUP_ID = 'com.gramboid.rxappfocus'
     PUBLISH_ARTIFACT_ID = 'rxappfocus'
-    PUBLISH_VERSION = '0.1.0'
+    PUBLISH_VERSION = '0.2.0'
 }
 
 android {
@@ -15,7 +15,7 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 23
-        versionCode 1
+        versionCode 2
         versionName PUBLISH_VERSION
     }
     buildTypes {
