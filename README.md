@@ -9,6 +9,8 @@ Maybe you want to stop receiving location updates when your app goes into the ba
 
 ## Usage
 
+### Visibility update stream
+
 In your `Application.onCreate()`:
 ```java
 AppFocusProvider focusProvider = new AppFocusProvider(this);
@@ -23,6 +25,16 @@ focusProvider.getAppFocus()
             }
         }
     });
+```
+
+### Quick visibility check
+
+```java
+if (focusProvider.isVisible()) {
+    // show a dialog
+} else {
+    // display a notification in the status bar
+}
 ```
 
 See the [rxappfocus-sample](https://github.com/gramboid/RxAppFocus/tree/master/rxappfocus-sample) module for a working example.
