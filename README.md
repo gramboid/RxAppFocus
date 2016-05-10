@@ -11,6 +11,8 @@ RxAppFocus is most useful when used in a non-Activity context: application start
 
 ## Usage
 
+See the [rxappfocus-sample](https://github.com/gramboid/RxAppFocus/tree/master/rxappfocus-sample) module for a working example.
+
 ### Visibility update stream
 
 In your `Application.onCreate()`:
@@ -39,7 +41,14 @@ if (focusProvider.isVisible()) {
 }
 ```
 
-See the [rxappfocus-sample](https://github.com/gramboid/RxAppFocus/tree/master/rxappfocus-sample) module for a working example.
+### Visible activity
+
+```java
+Activity activity = focusProvider.getVisibleActivity();
+if (activity != null) {
+    // do something with the activity
+}
+```
 
 ## Download
 
