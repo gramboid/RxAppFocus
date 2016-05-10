@@ -32,7 +32,7 @@ See the [rxappfocus-sample](https://github.com/gramboid/RxAppFocus/tree/master/r
 Available in [jcenter](https://bintray.com/bintray/jcenter?filterByPkgName=RxAppFocus).
 
 ```gradle
-compile 'com.gramboid.rxappfocus:rxappfocus:0.1.0'
+compile 'com.gramboid.rxappfocus:rxappfocus:0.2.0'
 ```
 
 ## License
