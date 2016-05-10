@@ -1,8 +1,6 @@
 package com.example.rxappfocus;
 
-import android.app.Activity;
 import android.app.Application;
-import android.content.pm.ActivityInfo;
 import android.widget.Toast;
 
 import com.gramboid.rxappfocus.AppFocusProvider;
@@ -24,14 +22,6 @@ public class App extends Application {
                     @Override
                     public void call(Boolean visible) {
                         Toast.makeText(App.this, visible ? "App visible" : "App hidden", Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-        // force all activities in our app to be displayed in portrait orientation
-        focusProvider.getVisibleActivity()
-                .subscribe(new Action1<Activity>() {
-                    @Override public void call(Activity activity) {
-                        activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
                     }
                 });
     }
