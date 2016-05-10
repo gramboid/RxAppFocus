@@ -1,11 +1,13 @@
 # RxAppFocus
 
-This is a tiny library which makes it simple to monitor when your app becomes visible or hidden, in a cool RxJava way.
+This is a tiny library which makes it simple to monitor when your app becomes visible or hidden, in a cool RxJava way. 
 
 Why would you want to do that?
 
 Maybe you want to trigger a sync with a cloud service when your app is resumed.
 Maybe you want to stop receiving location updates when your app goes into the background.
+
+RxAppFocus is most useful when used in a non-Activity context: application startup, receiving broadcasts, responding to asynchronous task completion, etc. (After all, in an Activity, the lifecycle methods already tell you what you need to know.)
 
 ## Usage
 
