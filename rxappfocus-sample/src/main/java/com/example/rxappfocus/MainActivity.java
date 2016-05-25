@@ -1,8 +1,10 @@
 package com.example.rxappfocus;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 
 import com.gramboid.rxappfocus.AppFocusProvider;
 
@@ -20,6 +22,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         focusProvider = ((App) getApplication()).getFocusProvider();
+
+        findViewById(R.id.button_change_activity).setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, SecondActivity.class));
+            }
+        });
     }
 
     @Override
