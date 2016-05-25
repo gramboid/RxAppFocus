@@ -37,7 +37,6 @@ public class AppFocusProvider {
 
         @Override
         public void onActivityStopped(Activity activity) {
-            visibleActivity = null;
             if (activity.isChangingConfigurations()) {
                 // ignore activity stop, just a config change
                 changingConfig = true;
@@ -45,6 +44,7 @@ public class AppFocusProvider {
                 foregroundCounter--;
                 if (!isVisible()) {
                     appFocusSubject.onNext(false);
+                    visibleActivity = null;
                 }
             }
         }
