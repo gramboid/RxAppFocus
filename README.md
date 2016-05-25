@@ -55,7 +55,7 @@ if (activity != null) {
 Available in [jcenter](https://bintray.com/bintray/jcenter?filterByPkgName=RxAppFocus).
 
 ```gradle
-compile 'com.gramboid.rxappfocus:rxappfocus:0.2.0'
+compile 'com.gramboid.rxappfocus:rxappfocus:0.2.1'
 ```
 
 ## License
