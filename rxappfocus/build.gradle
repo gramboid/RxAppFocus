@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
 ext {
@@ -29,7 +28,7 @@ android {
 dependencies {
     testCompile 'junit:junit:4.12'
 
-    compile 'io.reactivex:rxjava:1.1.5'
+    compile 'io.reactivex:rxjava:1.1.9'
 }
 
 apply from: 'https://raw.githubusercontent.com/blundell/release-android-library/master/android-release-aar.gradle'
