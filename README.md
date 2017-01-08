@@ -1,6 +1,6 @@
 # RxAppFocus
 
-[![Release](https://jitpack.io/v/com.gramboid/Repo.svg)]
+[![Release](https://jitpack.io/v/com.gramboid/RxAppFocus.svg)]
 (https://jitpack.io/#com.gramboid/RxAppFocus)
 
 This is a tiny library for Android which makes it simple to monitor when your app becomes visible or hidden, in a cool RxJava way. 
@@ -55,7 +55,7 @@ if (activity != null) {
 
 ## Download
 
-Available in [jcenter](https://bintray.com/bintray/jcenter?filterByPkgName=RxAppFocus).
+Available on [jitpack.io](https://jitpack.io/#gramboid/RxAppFocus).
 
 ```gradle
 compile 'com.gramboid.rxappfocus:rxappfocus:0.2.2'
