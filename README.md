@@ -58,9 +58,12 @@ if (activity != null) {
 Available on [jitpack.io](https://jitpack.io/#gramboid/RxAppFocus). If you don't already have it, add it to your top-level **build.gradle**:
 
 ```gradle
-repositories {
-    maven { url 'https://jitpack.io' }
-}	
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
+}
 ```
 
 Then add the library dependency to your application **build.gradle**:
