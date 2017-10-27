@@ -2,7 +2,7 @@
 
 [![Release](https://jitpack.io/v/com.gramboid/RxAppFocus.svg)](https://jitpack.io/#com.gramboid/RxAppFocus)
 
-This is a tiny library for Android which makes it simple to monitor when your app becomes visible or hidden, in a cool RxJava way. 
+A tiny library for Android/RxJava to tell you when your app becomes visible or hidden.
 
 Why would you want to do that?
 
