@@ -35,7 +35,7 @@ if (focusProvider.isVisible()) {
 ### Visible activity
 
 ```kotlin
-focusProvider.getVisibleActivity()?.let { activity -> /* do something with */ it }
+focusProvider.visibleActivity?.let { activity: Activity -> /* do something with it */ }
 ```
 
 ## Download
