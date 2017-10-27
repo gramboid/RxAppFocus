@@ -21,7 +21,7 @@ In your `Application.onCreate()`:
 ```kotlin
 val focusProvider = AppFocusProvider(this)
 focusProvider.getAppFocus()
-    .subscribe { visible ->
+    .subscribe { visible: Boolean ->
         if (visible) {
             // app is now visible
         } else {
