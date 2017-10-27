@@ -36,6 +36,10 @@ focusProvider.visibleActivity?.let { activity: Activity -> /* ... */ }
 
 ## Download
 
+```gradle
+compile 'com.gramboid.rxappfocus:rxappfocus:0.2.2'
+```
+
 Available on [jitpack.io](https://jitpack.io/#gramboid/RxAppFocus). If you don't already have it, add it to your top-level **build.gradle**:
 
 ```gradle
@@ -45,12 +49,6 @@ allprojects {
         maven { url 'https://jitpack.io' }
     }
 }
-```
-
-Then add the library dependency to your application **build.gradle**:
-
-```gradle
-compile 'com.gramboid.rxappfocus:rxappfocus:0.2.2'
 ```
 
 ## License
