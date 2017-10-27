@@ -19,8 +19,7 @@ See the [rxappfocus-sample](https://github.com/gramboid/RxAppFocus/tree/master/r
 
 In your `Application.onCreate()`:
 ```kotlin
-val focusProvider = AppFocusProvider(this)
-focusProvider.getAppFocus().subscribe { visible: Boolean -> ... }
+AppFocusProvider(this).getAppFocus().subscribe { visible: Boolean -> /* check updated visibility */ }
 ```
 
 ### Quick visibility check
