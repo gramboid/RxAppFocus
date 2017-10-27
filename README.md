@@ -25,11 +25,7 @@ AppFocusProvider(this).getAppFocus().subscribe { visible: Boolean -> /* handle u
 ### Quick visibility check
 
 ```kotlin
-if (focusProvider.isVisible()) {
-    // app is visible
-} else {
-    // app is not visible
-}
+if (focusProvider.isVisible) { /* app is visible */ } else { /* app is not visible */ }
 ```
 
 ### Visible activity
