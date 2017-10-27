@@ -19,12 +19,12 @@ See the [rxappfocus-sample](https://github.com/gramboid/RxAppFocus/tree/master/r
 
 In your `Application.onCreate()`:
 ```kotlin
-AppFocusProvider(this).getAppFocus().subscribe { visible: Boolean -> /* check updated visibility */ }
+AppFocusProvider(this).getAppFocus().subscribe { visible: Boolean -> /* handle updated visibility */ }
 ```
 
 ### Quick visibility check
 
-```java
+```kotlin
 if (focusProvider.isVisible()) {
     // app is visible
 } else {
@@ -34,11 +34,8 @@ if (focusProvider.isVisible()) {
 
 ### Visible activity
 
-```java
-Activity activity = focusProvider.getVisibleActivity();
-if (activity != null) {
-    // do something with the activity
-}
+```kotlin
+focusProvider.getVisibleActivity()?.let { activity -> /* do something with */ it }
 ```
 
 ## Download
