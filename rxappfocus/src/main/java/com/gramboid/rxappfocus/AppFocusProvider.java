@@ -3,6 +3,8 @@ package com.gramboid.rxappfocus;
 import android.app.Activity;
 import android.app.Application;
 import android.app.Application.ActivityLifecycleCallbacks;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import rx.Observable;
 import rx.subjects.ReplaySubject;
@@ -51,7 +53,7 @@ public class AppFocusProvider {
 
     };
 
-    public AppFocusProvider(Application app) {
+    public AppFocusProvider(@NonNull Application app) {
         app.registerActivityLifecycleCallbacks(callbacks);
     }
 
@@ -72,6 +74,7 @@ public class AppFocusProvider {
     /**
      * Returns the currently visible Activity, or null if none of the app's activities is currently visible.
      */
+    @Nullable
     public Activity getVisibleActivity() {
         return visibleActivity;
     }
