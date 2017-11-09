@@ -19,8 +19,8 @@ android {
 }
 
 dependencies {
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:26.1.0'
-
-    compile project(':rxappfocus')
+    implementation project(':rxappfocus')
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    
+    testImplementation 'junit:junit:4.12'
 }
