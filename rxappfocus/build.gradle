@@ -1,7 +1,13 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 
-group='com.gramboid.rxappfocus'
+
+ext {
+    VERSION = '0.3.0'
+}
+
+group='com.gramboid'
+version=VERSION
 
 android {
     compileSdkVersion 26
@@ -10,7 +16,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 26
         versionCode 5
-        versionName '0.3.0'
+        versionName VERSION
     }
     buildTypes {
         release {
