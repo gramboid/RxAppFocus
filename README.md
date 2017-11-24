@@ -35,6 +35,23 @@ if (focusProvider.isVisible) { /* ... */ }
 focusProvider.visibleActivity?.let { activity: Activity -> /* ... */ }
 ```
 
+## RxJava 1 or 2
+
+The library will provide either an RxJava 1 or 2 `Observable`, depending on which version of RxJava your app uses. The library is built with `compileOnly` (i.e. non-transitive) dependencies on both RxJava versions.
+
+### RxJava 1
+
+```kotlin
+focusProvider.getAppFocus().subscribe { }
+```
+
+### RxJava 2
+
+```kotlin
+focusProvider.getAppFocus2().subscribe { }
+```
+
+
 ## Download
 
 ```gradle
