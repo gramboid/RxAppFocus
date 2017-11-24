@@ -1,11 +1,13 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
+
 
 ext {
-    PUBLISH_GROUP_ID = 'com.gramboid.rxappfocus'
-    PUBLISH_ARTIFACT_ID = 'rxappfocus'
-    PUBLISH_VERSION = '0.3.0'
+    VERSION = '0.3.0'
 }
+
+group='com.gramboid'
+version=VERSION
 
 android {
     compileSdkVersion 26
@@ -14,7 +16,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 26
         versionCode 5
-        versionName PUBLISH_VERSION
+        versionName VERSION
     }
     buildTypes {
         release {
@@ -31,5 +33,3 @@ dependencies {
 
     testImplementation 'junit:junit:4.12'
 }
-
-apply from: 'https://raw.githubusercontent.com/blundell/release-android-library/master/android-release-aar.gradle'
