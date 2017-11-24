@@ -1,7 +1,8 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 
-group='com.gramboid.RxAppFocus'
+group='com.gramboid.rxappfocus'
+version='0.3.0'
 
 android {
     compileSdkVersion 26
