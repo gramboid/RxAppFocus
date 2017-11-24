@@ -14,8 +14,8 @@ import rx.subjects.ReplaySubject;
  */
 public class AppFocusProvider {
 
-    private boolean  changingConfig;
-    private int      foregroundCounter;
+    private boolean changingConfig;
+    private int foregroundCounter;
     private Activity visibleActivity;
 
     private final ReplaySubject<Boolean> appFocusSubject = ReplaySubject.createWithSize(1);
@@ -32,7 +32,7 @@ public class AppFocusProvider {
                 final boolean justBecomingVisible = !isVisible();
                 foregroundCounter++;
                 if (justBecomingVisible) {
-                    appFocusSubject.onNext(true);
+                    publishState(true);
                 }
             }
         }
@@ -45,13 +45,17 @@ public class AppFocusProvider {
             } else {
                 foregroundCounter--;
                 if (!isVisible()) {
-                    appFocusSubject.onNext(false);
+                    publishState(false);
                     visibleActivity = null;
                 }
             }
         }
 
     };
+
+    private void publishState(boolean visible) {
+        appFocusSubject.onNext(visible);
+    }
 
     public AppFocusProvider(@NonNull Application app) {
         app.registerActivityLifecycleCallbacks(callbacks);
