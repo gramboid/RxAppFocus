@@ -85,6 +85,7 @@ public class AppFocusProvider {
     /**
      * Returns an RxJava 1 Observable that emits a Boolean indicating whether the app is currently visible, and again each time the app's visibility changes.
      */
+    @NonNull
     public rx.Observable<Boolean> getAppFocus() {
         return subjectV1;
     }
@@ -92,6 +93,7 @@ public class AppFocusProvider {
     /**
      * Returns an RxJava 2 Observable that emits a Boolean indicating whether the app is currently visible, and again each time the app's visibility changes.
      */
+    @NonNull
     public io.reactivex.Observable<Boolean> getAppFocus2() {
         return subjectV2;
     }
