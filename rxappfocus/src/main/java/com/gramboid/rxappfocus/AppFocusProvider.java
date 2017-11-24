@@ -6,8 +6,6 @@ import android.app.Application.ActivityLifecycleCallbacks;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import rx.Observable;
-import rx.subjects.ReplaySubject;
 
 /**
  * Provides Observables to monitor app visibility.
@@ -18,7 +16,8 @@ public class AppFocusProvider {
     private int foregroundCounter;
     private Activity visibleActivity;
 
-    private final ReplaySubject<Boolean> appFocusSubject = ReplaySubject.createWithSize(1);
+    private final rx.subjects.BehaviorSubject<Boolean> subjectV1;
+    private final io.reactivex.subjects.BehaviorSubject<Boolean> subjectV2;
 
     private final ActivityLifecycleCallbacks callbacks = new DefaultActivityLifecycleCallbacks() {
 
@@ -54,18 +53,47 @@ public class AppFocusProvider {
     };
 
     private void publishState(boolean visible) {
-        appFocusSubject.onNext(visible);
+        if (subjectV1 != null) subjectV1.onNext(visible);
+        if (subjectV2 != null) subjectV2.onNext(visible);
+    }
+
+    private boolean rxJava1Available() {
+        try {
+            Class.forName("rx.Observable");
+            return true;
+        } catch (Throwable t) {
+            return false;
+        }
+    }
+
+    private boolean rxJava2Available() {
+        try {
+            Class.forName("io.reactivex.Observable");
+            return true;
+        } catch (Throwable t) {
+            return false;
+        }
     }
 
     public AppFocusProvider(@NonNull Application app) {
         app.registerActivityLifecycleCallbacks(callbacks);
+
+        subjectV1 = rxJava1Available() ? rx.subjects.BehaviorSubject.<Boolean>create() : null;
+        subjectV2 = rxJava2Available() ? io.reactivex.subjects.BehaviorSubject.<Boolean>create() : null;
     }
 
     /**
-     * Returns an Observable that emits a Boolean indicating whether the app is currently visible, and again each time the app's visibility changes.
+     * Returns an RxJava 1 Observable that emits a Boolean indicating whether the app is currently visible, and again each time the app's visibility changes.
      */
-    public Observable<Boolean> getAppFocus() {
-        return appFocusSubject;
+    public rx.Observable<Boolean> getAppFocus() {
+        return subjectV1;
+    }
+
+    /**
+     * Returns an RxJava 2 Observable that emits a Boolean indicating whether the app is currently visible, and again each time the app's visibility changes.
+     */
+    public io.reactivex.Observable<Boolean> getAppFocus2() {
+        return subjectV2;
     }
 
     /**
