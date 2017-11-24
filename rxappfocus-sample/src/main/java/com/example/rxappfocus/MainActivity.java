@@ -8,13 +8,14 @@ import android.view.View;
 
 import com.gramboid.rxappfocus.AppFocusProvider;
 
-import rx.Subscription;
-import rx.functions.Action1;
-import rx.functions.Func1;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Predicate;
+
 
 public class MainActivity extends AppCompatActivity {
 
-    private Subscription     sub;
+    private Disposable disposable;
     private AppFocusProvider focusProvider;
 
     @Override
@@ -33,16 +34,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        sub = focusProvider
-                .getAppFocus()
-                .filter(new Func1<Boolean, Boolean>() {
-                    @Override public Boolean call(Boolean visible) {
+        disposable = focusProvider
+                .getAppFocus2()
+                .filter(new Predicate<Boolean>() {
+                    @Override
+                    public boolean test(Boolean visible) throws Exception {
                         return visible;
                     }
                 })
-                .subscribe(new Action1<Boolean>() {
+                .subscribe(new Consumer<Boolean>() {
                     @Override
-                    public void call(Boolean visible) {
+                    public void accept(Boolean visible) throws Exception {
                         Log.d("MainActivity", "We are visible!");
                     }
                 });
@@ -51,6 +53,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        sub.unsubscribe();
+        disposable.dispose();
     }
 }
