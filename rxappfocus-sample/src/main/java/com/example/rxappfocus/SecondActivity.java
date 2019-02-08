@@ -1,6 +1,6 @@
 package com.example.rxappfocus;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class SecondActivity extends AppCompatActivity {
