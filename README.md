@@ -55,7 +55,7 @@ focusProvider.getAppFocus2().subscribe { }
 ## Download
 
 ```gradle
-compile 'com.gramboid.rxappfocus:rxappfocus:0.2.2'
+implementation 'com.gramboid:rxappfocus:0.3.1' 
 ```
 
 Available on [jitpack.io](https://jitpack.io/#gramboid/RxAppFocus). If you don't already have it, add it to your top-level **build.gradle**:
@@ -63,7 +63,6 @@ Available on [jitpack.io](https://jitpack.io/#gramboid/RxAppFocus). If you don't
 ```gradle
 allprojects {
     repositories {
-        ...
         maven { url 'https://jitpack.io' }
     }
 }
