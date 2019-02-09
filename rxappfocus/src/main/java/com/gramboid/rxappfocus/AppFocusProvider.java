@@ -14,9 +14,14 @@ public class AppFocusProvider {
 
     private boolean changingConfig;
     private int foregroundCounter;
+
+    @Nullable
     private Activity visibleActivity;
 
+    @Nullable
     private final rx.subjects.BehaviorSubject<Boolean> subjectV1;
+
+    @Nullable
     private final io.reactivex.subjects.BehaviorSubject<Boolean> subjectV2;
 
     private final ActivityLifecycleCallbacks callbacks = new DefaultActivityLifecycleCallbacks() {
@@ -87,7 +92,11 @@ public class AppFocusProvider {
      */
     @NonNull
     public rx.Observable<Boolean> getAppFocus() {
-        return subjectV1;
+        if (subjectV1 != null) {
+            return subjectV1;
+        } else {
+             throw new IllegalStateException("RxJava 1 not found");
+        }
     }
 
     /**
@@ -95,7 +104,11 @@ public class AppFocusProvider {
      */
     @NonNull
     public io.reactivex.Observable<Boolean> getAppFocus2() {
-        return subjectV2;
+        if (subjectV2 != null) {
+            return subjectV2;
+        } else {
+            throw new IllegalStateException("RxJava 2 not found");
+        }
     }
 
     /**
