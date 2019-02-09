@@ -6,9 +6,6 @@ ext {
     VERSION = '0.3.1'
 }
 
-group='com.gramboid'
-version=VERSION
-
 android {
     compileSdkVersion 28
 
