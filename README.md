@@ -1,6 +1,7 @@
 # RxAppFocus
 
 [![Release](https://jitpack.io/v/com.gramboid/RxAppFocus.svg)](https://jitpack.io/#com.gramboid/RxAppFocus)
+[![CircleCI](https://circleci.com/gh/gramboid/RxAppFocus.svg?style=shield)](https://circleci.com/gh/gramboid/RxAppFocus)
 
 A tiny library for Android/RxJava to tell you when your app becomes visible or hidden.
 
