@@ -8,8 +8,11 @@ jobs:
       JVM_OPTS: -Xmx3200m
     steps:
       - checkout
+      - run:
+          name: Generate cache key
+          command: $(find . -type f \( -name "*.gradle" -o -name "gradle.*" \) -exec shasum {} \; | sort | shasum) | cut -f 1 -d ' ' > /tmp/checksum.txt      
       - restore_cache:
-          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "rxappfocus/build.gradle" }}
+          key: gradle-{{ checksum "/tmp/checksum.txt" }}
 #      - run:
 #         name: Chmod permissions #if permission for Gradlew Dependencies fail, use this.
 #         command: sudo chmod +x ./gradlew
@@ -19,7 +22,7 @@ jobs:
       - save_cache:
           paths:
             - ~/.gradle
-          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "rxappfocus/build.gradle" }}
+          key: gradle-{{ checksum "/tmp/checksum.txt" }}
       - run:
           name: Run Tests
           command: ./gradlew lint test
