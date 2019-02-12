@@ -102,7 +102,7 @@ public class AppFocusProvider {
     @NonNull
     public io.reactivex.Observable<Boolean> getAppFocus2() {
         if (subjectV2 != null) {
-            return subjectV2;
+            return subjectV2.hide();
         } else {
             throw new IllegalStateException("RxJava 2 not found");
         }
