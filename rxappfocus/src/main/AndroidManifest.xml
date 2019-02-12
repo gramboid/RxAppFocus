@@ -1,3 +1,10 @@
-<manifest package="com.gramboid.rxappfocus">
-    <application/>
+<manifest package="com.gramboid.rxappfocus"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <application>
+        <provider
+            android:authorities="${applicationId}.rxappfocus.initprovider"
+            android:exported="false"
+            android:enabled="true"
+            android:name=".InitProvider" />
+    </application>
 </manifest>

@@ -16,13 +16,11 @@ import io.reactivex.functions.Predicate;
 public class MainActivity extends AppCompatActivity {
 
     private Disposable disposable;
-    private AppFocusProvider focusProvider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        focusProvider = ((App) getApplication()).getFocusProvider();
 
         findViewById(R.id.button_change_activity).setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
@@ -34,8 +32,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        disposable = focusProvider
-                .getAppFocus2()
+        disposable = AppFocusProvider.getInstance().getAppFocus2()
                 .filter(new Predicate<Boolean>() {
                     @Override
                     public boolean test(Boolean visible) throws Exception {
