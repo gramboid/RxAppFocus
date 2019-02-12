@@ -18,9 +18,8 @@ See the [rxappfocus-sample](https://github.com/gramboid/RxAppFocus/tree/master/r
 
 ### Visibility update stream
 
-In your `Application.onCreate()`:
 ```kotlin
-val focusProvider = AppFocusProvider(this)
+val focusProvider = AppFocusProvider.getInstance()
 focusProvider.getAppFocus().subscribe { visible: Boolean -> /* ... */ }
 ```
 
@@ -51,7 +50,7 @@ focusProvider.getAppFocus2().subscribe { }
 ## Download
 
 ```gradle
-implementation 'com.gramboid:rxappfocus:0.3.1' 
+implementation 'com.gramboid:rxappfocus:0.4.0' 
 ```
 
 Available on [jitpack.io](https://jitpack.io/#gramboid/RxAppFocus). If you don't already have it, add it to your top-level **build.gradle**:
