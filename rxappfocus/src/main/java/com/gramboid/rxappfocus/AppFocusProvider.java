@@ -19,10 +19,10 @@ public class AppFocusProvider {
     private Activity visibleActivity;
 
     @Nullable
-    private final rx.subjects.BehaviorSubject<Boolean> subjectV1;
+    private final rx.subjects.BehaviorSubject<Boolean> subjectV1 = rxJava1Available() ? rx.subjects.BehaviorSubject.<Boolean>create() : null;
 
     @Nullable
-    private final io.reactivex.subjects.BehaviorSubject<Boolean> subjectV2;
+    private final io.reactivex.subjects.BehaviorSubject<Boolean> subjectV2 = rxJava2Available() ? io.reactivex.subjects.BehaviorSubject.<Boolean>create() : null;
 
     private final ActivityLifecycleCallbacks callbacks = new DefaultActivityLifecycleCallbacks() {
 
@@ -82,9 +82,6 @@ public class AppFocusProvider {
 
     public AppFocusProvider(@NonNull Application app) {
         app.registerActivityLifecycleCallbacks(callbacks);
-
-        subjectV1 = rxJava1Available() ? rx.subjects.BehaviorSubject.<Boolean>create() : null;
-        subjectV2 = rxJava2Available() ? io.reactivex.subjects.BehaviorSubject.<Boolean>create() : null;
     }
 
     /**
