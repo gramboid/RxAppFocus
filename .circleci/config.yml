@@ -10,7 +10,7 @@ jobs:
       - checkout
       - run:
           name: Generate cache key
-          command: find . -type f \( -name "*.gradle" -o -name "gradle.*" \) -exec shasum {} \; | sort | shasum | cut -f 1 -d ' ' > /tmp/checksum.txt      
+          command: find . -type f \( -name "*gradle*" \) -not -path "./.git/*" -exec shasum {} \; | sort | shasum | cut -f 1 -d ' ' > /tmp/checksum.txt      
       - restore_cache:
           key: gradle-{{ checksum "/tmp/checksum.txt" }}
 #      - run:
