@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
  */
 public class AppFocusProvider {
 
+    // This doesn't actually leak the visibleActivity since we null it out
     @SuppressLint("StaticFieldLeak")
     private static final AppFocusProvider instance = new AppFocusProvider();
 
