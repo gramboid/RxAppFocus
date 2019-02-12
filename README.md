@@ -19,7 +19,8 @@ See the [rxappfocus-sample](https://github.com/gramboid/RxAppFocus/tree/master/r
 ### Visibility update stream
 
 ```kotlin
-AppFocusProvider.getInstance().getAppFocus().subscribe { visible: Boolean -> /* ... */ }
+val focusProvider = AppFocusProvider.getInstance()
+focusProvider.getAppFocus().subscribe { visible: Boolean -> /* ... */ }
 ```
 
 ### Quick visibility check
