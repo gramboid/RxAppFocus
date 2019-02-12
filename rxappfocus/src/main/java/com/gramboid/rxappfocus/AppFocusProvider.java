@@ -1,8 +1,10 @@
 package com.gramboid.rxappfocus;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Application;
 import android.app.Application.ActivityLifecycleCallbacks;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -11,6 +13,13 @@ import androidx.annotation.Nullable;
  * Provides Observables to monitor app visibility.
  */
 public class AppFocusProvider {
+
+    @SuppressLint("StaticFieldLeak")
+    private static final AppFocusProvider instance = new AppFocusProvider();
+
+    public static AppFocusProvider getInstance() {
+        return instance;
+    }
 
     private boolean changingConfig;
     private int foregroundCounter;
@@ -80,7 +89,10 @@ public class AppFocusProvider {
         }
     }
 
-    public AppFocusProvider(@NonNull Application app) {
+    private AppFocusProvider() {
+    }
+
+    void init(@NonNull Application app) {
         app.registerActivityLifecycleCallbacks(callbacks);
     }
 
@@ -92,7 +104,7 @@ public class AppFocusProvider {
         if (subjectV1 != null) {
             return subjectV1;
         } else {
-             throw new IllegalStateException("RxJava 1 not found");
+            throw new IllegalStateException("RxJava 1 not found");
         }
     }
 
