@@ -13,9 +13,6 @@ jobs:
           command: find . -type f \( -name "*gradle*" \) -not -path "./.git/*" -exec shasum {} \; | sort | shasum | cut -f 1 -d ' ' > /tmp/checksum.txt      
       - restore_cache:
           key: gradle-{{ checksum "/tmp/checksum.txt" }}
-#      - run:
-#         name: Chmod permissions #if permission for Gradlew Dependencies fail, use this.
-#         command: sudo chmod +x ./gradlew
       - run:
           name: Download Dependencies
           command: ./gradlew androidDependencies
