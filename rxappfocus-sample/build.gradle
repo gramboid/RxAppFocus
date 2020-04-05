@@ -20,8 +20,8 @@ android {
 
 dependencies {
     implementation project(':rxappfocus')
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'io.reactivex.rxjava2:rxjava:2.2.6'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.19'
 
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13'
 }
