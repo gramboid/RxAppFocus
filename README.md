@@ -1,6 +1,8 @@
 # DEPRECATED
 
-This project is no longer maintained, and no new development will take place. Use [ProcessLifecycleOwner](https://developer.android.com/reference/androidx/lifecycle/ProcessLifecycleOwner) instead.
+**This project is no longer maintained, and no new development will take place.**
+
+Use [ProcessLifecycleOwner](https://developer.android.com/reference/androidx/lifecycle/ProcessLifecycleOwner) instead.
 
 
 
